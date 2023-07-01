@@ -15,7 +15,6 @@ const MoviePage = () => {
       lg: '250px 1fr',
     }}
   >
-  <div className="container">yoo</div>
   <Show above="lg">
       <GridItem area="aside" paddingX={5}>
         <GenreList />
