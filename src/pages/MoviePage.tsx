@@ -15,6 +15,7 @@ const MoviePage = () => {
       lg: '250px 1fr',
     }}
   >
+  
   <Show above="lg">
       <GridItem area="aside" paddingX={5}>
         <GenreList />
@@ -23,7 +24,6 @@ const MoviePage = () => {
       <GridItem gridArea="main">
       <Box paddingLeft={2}>
         <Flex marginBottom={5}>
-          <SortSelector />
         </Flex>
       </Box>
         <MovieGrid />

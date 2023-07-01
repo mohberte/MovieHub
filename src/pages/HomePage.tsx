@@ -27,7 +27,6 @@ const HomePage = () => {
         <Flex marginBottom={5}>
           <Box marginRight={5}>
           </Box>
-          <SortSelector />
         </Flex>
       </Box>
       <MovieGrid />

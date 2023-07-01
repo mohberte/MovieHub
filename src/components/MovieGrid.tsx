@@ -61,14 +61,3 @@ const MovieGrid = () => {
     </InfiniteScroll>
   );
 };
-
-// export default MovieGrid;
-
-//  {page.results.map((game) => (
-//                <Grid>
-//                 {/* <Image src={getCroppedImageUrl(game.backdrop_path)} /> */}
-//                 <Image src={getCroppedImageUrl(game.poster_path)} />
-//                  <Link to={'/movie/' + game.id}>{game.original_title}</Link>
-//                 <Circlem score={game.vote_average}/>
-//                  hehe  </Grid>
-//               ))}
