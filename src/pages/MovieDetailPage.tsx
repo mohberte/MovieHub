@@ -2,19 +2,17 @@ import {
   GridItem,
   Heading,
   SimpleGrid,
-  Spinner,
-  Text,
+  Spinner
 } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import ExpandableText from '../components/ExpandableText';
-import GameScreenshots from '../components/GameScreenshots';
-import GameTrailer from '../components/GameTrailer';
-import useGame from '../hooks/useGame';
+import MovieScreenShots from '../components/MovieScreenshots';
+import MovieTrailer from '../components/MovieTrailer';
+import useGame from '../hooks/useMovie';
 
-const GameDetailPage = () => {
+const MovieDetailPage = () => {
   const { id } = useParams();
   const { data: game, isLoading, error } = useGame(id!);
-  const link = "https://www.youtube.com/watch?v=" + game?.key;
 
   if (isLoading) return <Spinner />;
 
@@ -28,17 +26,13 @@ const GameDetailPage = () => {
         { <ExpandableText>{game.overview}</ExpandableText>
         
       }
-      <GameScreenshots gameId={game.id} />
+      <MovieScreenShots gameId={game.id} />
       </GridItem>
-      {/* <iframe width="420" height="315"
-src="https://www.youtube.com/embed/mi4pEsYeljk">
-
-</iframe> */}
       { <GridItem>
-<GameTrailer gameId={game.id} />
+<MovieTrailer gameId={game.id} />
       </GridItem> }
     </SimpleGrid>
   );
 };
 
-export default GameDetailPage;
+export default MovieDetailPage;

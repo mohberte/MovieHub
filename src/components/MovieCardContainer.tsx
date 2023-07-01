@@ -5,7 +5,7 @@ interface Props {
   children: ReactNode;
 }
 
-const GameCardContainer = ({ children }: Props) => {
+const MovieCardContainer = ({ children }: Props) => {
   return (
     <Box
       _hover={{
@@ -20,4 +20,4 @@ const GameCardContainer = ({ children }: Props) => {
   );
 };
 
-export default GameCardContainer;
+export default MovieCardContainer;

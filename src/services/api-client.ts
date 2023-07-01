@@ -5,6 +5,7 @@ export interface FetchResponse<T> {
   next: string | null;
   results: T[];
   backdrops?: T[];
+  genres?: T[];
 }
 
 //https://api.themoviedb.org/3/movie/550?api_key=bd2ab66e6faf7c9e384833a989606004

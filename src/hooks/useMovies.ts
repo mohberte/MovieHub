@@ -2,10 +2,10 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import ms from 'ms';
 import APIClient, { FetchResponse } from '../services/api-client';
 import useGameQueryStore from '../store';
-import { Game } from '../entities/Game';
+import Movie from '../entities/Movie';
 
-const apiClient = new APIClient<Game>('/discover/movie');
-const apiClients = new APIClient<Game>('/search/movie');
+const apiClient = new APIClient<Movie>('/discover/movie');
+const apiClients = new APIClient<Movie>('/search/movie');
 
 // { value: 'movie/popular', label: 'popular' },
 // { value: 'movie/now_playing', label: 'now playing' }
@@ -30,7 +30,7 @@ const useGames = () => {
     }
   };
 
-  return useInfiniteQuery<FetchResponse<Game>, Error>({
+  return useInfiniteQuery<FetchResponse<Movie>, Error>({
     queryKey: ['games', gameQuery],
     queryFn: ({ pageParam = 1 }) =>
       apiToUse.getAll({

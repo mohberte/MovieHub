@@ -2,7 +2,7 @@ import { Heading } from '@chakra-ui/react';
 import useGenre from '../hooks/useGenre';
 import useGameQueryStore from '../store';
 
-const GameHeading = () => {
+const MovieHeading = () => {
   const genreId = useGameQueryStore(s => s.gameQuery.genreId);
   const genre = useGenre(genreId);
 
@@ -19,4 +19,4 @@ const GameHeading = () => {
   );
 };
 
-export default GameHeading;
+export default MovieHeading;

@@ -19,25 +19,15 @@ const GenreList = () => {
   if (error) return null;
 
   if (isLoading) return <Spinner />;
-  console.log('data');
-  console.log('data');
-  console.log(data.genres);
-
   return (
     <>
       <Heading fontSize="2xl" marginTop={9} marginBottom={3}>
         Genres
       </Heading>
       <List>
-        {data?.genres.map((genre) => (
+        {data?.genres?.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
             <HStack>
-              <Image
-                boxSize="32px"
-                borderRadius={8}
-                objectFit="cover"
-                src={getCroppedImageUrl(genre.image_background)}
-              />
               <Button
                 whiteSpace="normal"
                 textAlign="left"

@@ -6,17 +6,12 @@ interface Props {
   gameId: number;
 }
 
-const GameScreenshots = ({ gameId }: Props) => {
+const MovieScreenshots = ({ gameId }: Props) => {
   const {data, isLoading, error } = useScreenshots(gameId);
 
   if (isLoading) return null;
   
   if (error) throw error;
-  console.log('data');
-  console.log(data?.backdrops);
-  console.log('data');
-  
-
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
       {data?.backdrops?.map(file => 
@@ -25,4 +20,4 @@ const GameScreenshots = ({ gameId }: Props) => {
   )
 }
 
-export default GameScreenshots
+export default MovieScreenshots

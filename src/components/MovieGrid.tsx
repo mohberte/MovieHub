@@ -5,12 +5,12 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import useGames from '../hooks/useGames';
-import GameCard from './GameCard';
-import GameCardContainer from './GameCardContainer';
-import GameCardSkeleton from './GameCardSkeleton';
+import useGames from '../hooks/useMovies';
+import MovieCard from './MovieCard';
+import MovieCardContainer from './MovieCardContainer';
+import MovieCardSkeleton from './MovieCardSkeleton';
 
-const GameGrid = () => {
+const MovieGrid = () => {
   const {
     data,
     error,
@@ -35,6 +35,7 @@ const GameGrid = () => {
       hasMore={!!hasNextPage}
       next={() => fetchNextPage()}
       loader={<Spinner />}
+      key={fetchedGamesCount.valueOf()}
     >
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
@@ -43,16 +44,16 @@ const GameGrid = () => {
       >
         {isLoading &&
           skeletons.map((skeleton) => (
-            <GameCardContainer key={skeleton}>
-              <GameCardSkeleton />
-            </GameCardContainer>
+            <MovieCardContainer key={skeleton}>
+              <MovieCardSkeleton />
+            </MovieCardContainer>
           ))}
         {data?.pages.map((page, index) => (
           <React.Fragment key={index}>
-            {page.results.map((game) => (
-              <GameCardContainer key={game.id}>
-                <GameCard game={game} />
-              </GameCardContainer>
+            {page.results.map((movie) => (
+              <MovieCardContainer key={movie.id}>
+                <MovieCard movie={movie} />
+              </MovieCardContainer>
             ))}
           </React.Fragment>
         ))}
@@ -61,4 +62,13 @@ const GameGrid = () => {
   );
 };
 
-export default GameGrid;
+// export default MovieGrid;
+
+//  {page.results.map((game) => (
+//                <Grid>
+//                 {/* <Image src={getCroppedImageUrl(game.backdrop_path)} /> */}
+//                 <Image src={getCroppedImageUrl(game.poster_path)} />
+//                  <Link to={'/movie/' + game.id}>{game.original_title}</Link>
+//                 <Circlem score={game.vote_average}/>
+//                  hehe  </Grid>
+//               ))}

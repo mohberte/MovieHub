@@ -1,7 +1,7 @@
 import { Box, Grid, Show, GridItem, Flex } from '@chakra-ui/react'
-import GameGrid from '../components/GameGrid'
-import GameHeading from '../components/GameHeading'
+import MovieGrid from '../compo/MovieGrid'
 import GenreList from '../components/GenreList'
+import MovieHeading from '../components/MovieHeading'
 import SortSelector from '../components/SortSelector'
 
 const HomePage = () => {
@@ -23,14 +23,14 @@ const HomePage = () => {
     </Show>
     <GridItem area="main">
       <Box paddingLeft={2}>
-        <GameHeading />
+        <MovieHeading />
         <Flex marginBottom={5}>
           <Box marginRight={5}>
           </Box>
           <SortSelector />
         </Flex>
       </Box>
-      <GameGrid />
+      <MovieGrid />
     </GridItem>
   </Grid>
   )

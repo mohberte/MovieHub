@@ -9,10 +9,11 @@ Flex} from '@chakra-ui/react';
   import React from 'react';
   import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link } from 'react-router-dom';
-import GameCardContainer from '../components/GameCardContainer';
-import GameCardSkeleton from '../components/GameCardSkeleton';
+import MovieCard from '../components/MovieCard';
+import MovieCardContainer from '../components/MovieCardContainer';
+import MovieCardSkeleton from '../components/MovieCardSkeleton';
 import SortSelector from '../components/SortSelector';
-  import useGames from '../hooks/useGames';
+  import useGames from '../hooks/useMovies';
 import getCroppedImageUrl from '../services/image-url';
 import Circlem from './circlem';
   
@@ -41,12 +42,9 @@ import Circlem from './circlem';
         hasMore={!!hasNextPage}
         next={() => fetchNextPage()}
         loader={<Spinner />}
+      
       >
-        <Box paddingLeft={2}>
-        <Flex marginBottom={5}>
-          <SortSelector />
-        </Flex>
-      </Box>
+       
         <SimpleGrid
           columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
           spacing={6}
@@ -54,21 +52,18 @@ import Circlem from './circlem';
         >
           {isLoading &&
             skeletons.map((skeleton) => (
-              <GameCardContainer key={skeleton}>
-                <GameCardSkeleton />
-              </GameCardContainer>
+              <MovieCardContainer key={skeleton}>
+                <MovieCardSkeleton />
+              </MovieCardContainer>
             ))}
             
           {data?.pages.map((page, index) => (
             <React.Fragment key={index}>
-              {page.results.map((game) => (
-               <Grid>
-                {/* <Image src={getCroppedImageUrl(game.backdrop_path)} /> */}
-                <Image src={getCroppedImageUrl(game.poster_path)} />
-                 <Link to={'/movie/' + game.id}>{game.original_title}</Link>
-                <Circlem score={game.vote_average}/>
-                 hehe  </Grid>
-              ))}
+              {page.results.map((movie) => (
+              <MovieCardContainer key={movie.id}>
+                <MovieCard movie={movie} />
+              </MovieCardContainer>
+            ))}
             </React.Fragment>
           ))}
         </SimpleGrid>
