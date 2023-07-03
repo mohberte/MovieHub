@@ -2,6 +2,9 @@
 
 This repository contains the completed MovieHub project .
 
+## Live demo here:
+https://movie-d2hxq9j57-mohberte.vercel.app/
+
 ## Getting Started
 
 To get started, follow these steps:
