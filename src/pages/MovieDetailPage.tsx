@@ -27,9 +27,10 @@ const MovieDetailPage = () => {
         
       }
       <MovieScreenShots gameId={game.id} />
+      
       </GridItem>
       { <GridItem>
-<MovieTrailer gameId={game.id} />
+          <MovieTrailer gameId={game.id} />
       </GridItem> }
     </SimpleGrid>
   );

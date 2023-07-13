@@ -1,5 +1,6 @@
 import { Box, Grid, Show, GridItem, Flex } from '@chakra-ui/react'
 import MovieGrid from '../compo/MovieGrid'
+import Disclaimer from '../components/Disclaimer'
 import GenreList from '../components/GenreList'
 import SortSelector from '../components/SortSelector'
 
@@ -17,8 +18,12 @@ const MoviePage = () => {
   >
   
   <Show above="lg">
-      <GridItem area="aside" paddingX={5}>
+      <GridItem area="aside" paddingX={5} >
         <GenreList />
+        <div style={{ marginTop: '20px' }}>
+    <Disclaimer />
+  </div>
+        
       </GridItem>
     </Show>
       <GridItem gridArea="main">
